@@ -9,14 +9,16 @@
 			url  : '/',
 			views:{
 				'header' : {
-					templateUrl : 'common/views/header.view.html'
+					templateUrl : 'common/header/header.view.html',
+					controller  : "HeaderController"
 				},
 				'content':{
 					templateUrl : "home/home.view.html",
 					controller  : "HomeController"
 				},
 				'footer' :{
-					templateUrl : "common/views/footer.view.html"
+					templateUrl : "common/footer/footer.view.html",
+					controller  : "FooterController"
 				}
 			}
 		})
