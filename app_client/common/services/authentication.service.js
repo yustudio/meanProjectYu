@@ -34,7 +34,7 @@ angular.module('MeanAppYu')
 					payload = JSON.parse(payload);
 				return {
 					email : payload.email,
-					name : payload.name
+					name : payload.firstName
 				};
 				}
 			};
@@ -42,13 +42,13 @@ angular.module('MeanAppYu')
 			register = function(user) {
 				console.log("-------------Inside auth.service")
 				return $http.post('/api/register', user).success(function(data){
-				saveToken(data.token);
+					saveToken(data.token);
 				});
 			};
 
 			login = function(user) {
 				return $http.post('/api/login', user).success(function(data) {
-				saveToken(data.token);
+					saveToken(data.token);
 				});
 			};
 
