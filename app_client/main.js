@@ -42,8 +42,8 @@
 			}
 		})
 
-		.state('app.signup',{
-			url  : 'signup',
+		.state('app.register',{
+			url  : 'register',
 			views:{
 				'content@':{
 					templateUrl : "auth/register/register.view.html",

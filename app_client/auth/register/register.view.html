@@ -1,5 +1,83 @@
-<div class="container">
-<div>
-<h1>register.view.html</h1>
-</div>
-</div>
+<div class="container">    
+
+<div class="row">
+    <div class="col-md-6">
+      <h1>Register</h1>
+      <p class="lead">Already a member? Please <a href="/login">log in</a> instead.</p>
+      <form ng-submit="register()">
+        <div class="form-group">
+          <label for="name">First aame</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter first name" ng-model="user.firstName">
+        </div>
+        <div class="form-group">
+          <label for="name">Last name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter last name" ng-model="user.lastName">
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="user.email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Enter Password" ng-model="user.password">
+        </div>
+        <button type="submit" class="btn btn-default">Register!</button>
+      </form>
+    </div>
+  </div>
+          
+	<!--    <div class="panel panel-info">
+	        <div class="panel-heading">
+	            <div class="panel-title">Create Your Account</div>
+	        </div>  
+	        <div class="panel-body" >
+	            <form name="signupform" ng-submit = "register()" class="form-horizontal" role="form" action = "" method="POST">
+
+	                <div id="signupalert" style="display:none" class="alert alert-danger">
+	                    <p>Error:</p>
+	                    <span></span>
+	                </div>
+	                
+	                
+	                <div class="form-group" ng-class="{ 'has-error': signupform.firstName.$dirty && signupform.firstName.$error.required}" >
+	                    <label for="firstName" class="col-md-3 control-label">First Name</label>
+	                    <div class="col-md-9">
+	                        <input type="text" class="form-control" name="firstName" placeholder="First Name" ng-model="user.firstName">
+	                    </div>
+	                </div>
+	                
+	                <div class="form-group" ng-class="{ 'has-error': signupform.lastName.$dirty && signupform.lastName.$error.required}">
+	                    <label for="lastName" class="col-md-3 control-label">Last Name</label>
+	                    <div class="col-md-9">
+	                        <input type="text" class="form-control" name="lastName" placeholder="Last Name" ng-model="user.lastName">
+	                    </div>
+	                </div>
+	                    
+	                
+	                <div class="form-group" ng-class="{ 'has-error': signupform.userEmail.$dirty && signupform.userEmail.$error.required && signupform.userEmail.$error.email}">
+	                    <label for="userEmail" class="col-md-3 control-label">Email</label>
+	                    <div class="col-md-9">
+	                        <input type="email" class="form-control" name="userEmail" placeholder="Email Address" ng-model="user.email">
+	                    </div>
+	                </div>
+	                 
+	                 
+	                <div class="form-group" ng-class="{ 'has-error': signupform.password.$dirty && signupform.password.$error.required}">
+	                    <label for="password" class="col-md-3 control-label">Password</label>
+	                    <div class="col-md-9">
+	                        <input type="password" class="form-control" name="password" placeholder="Password" ng-model="user.password">
+	                    </div>
+	                </div>
+	                    
+	                
+	                <div class="form-group">
+	                                                       
+	                    <div class="col-md-offset-3 col-md-9 form-actions">
+	                        <button type="submit" class="btn btn-info" ng-disabled="signupform.$invalid || dataloading"> Create</button>
+	                    </div>
+	                </div>
+	               
+	            </form>
+	         </div>
+	    </div>  -->        
+    </div>

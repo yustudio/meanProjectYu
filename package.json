@@ -8,20 +8,27 @@
   "dependencies": {
     "body-parser": "~1.15.1",
     "cookie-parser": "~1.4.3",
+    "crypto": "0.0.3",
     "debug": "~2.2.0",
     "express": "~4.13.4",
+    "express-jwt": "^3.4.0",
     "jade": "~1.11.0",
+    "jsonwebtoken": "^7.1.7",
+    "mongoose": "^4.5.8",
+    "mongoose-unique-validator": "^1.0.2",
     "morgan": "~1.7.0",
+    "nodemon": "^1.10.0",
+    "passport": "^0.3.2",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
-    "nodemon": "*",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-ng-annotate": "^1.1.0",
     "gulp-ng-html2js": "^0.2.0",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.2.0",
-    "gulp-watch": "^4.3.4"
+    "gulp-watch": "^4.3.4",
+    "nodemon": "^1.10.0"
   }
 }

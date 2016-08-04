@@ -1,1 +1,77 @@
-authentication.js
+var passport = require('passport');
+var mongoose = require('mongoose');
+var User = require('../models/users');
+
+
+// var sendJSONresponse = function(res, status, content) {
+//   res.status(status);
+//   res.json(content);
+// };
+
+module.exports.register = function(req, res) {
+
+  // if(!req.body.name || !req.body.email || !req.body.password) {
+  //   sendJSONresponse(res, 400, {
+  //     "message": "All fields required"
+  //   });
+  //   return;
+  // }
+
+console.log("--------------Registering in DB");
+
+	var user = new User();
+
+	// MISSING ERROR TRAPS: validate form input
+	user.firstName = req.body.firstName;
+	user.lastName = req.body.lastName;
+	user.email = req.body.email;
+
+	user.setPassword(req.body.password);
+
+	// MISSING ERROR TRAPS: catch throws from save
+	user.save(function(err) {
+		console.log("--------------Save user to DB");
+		var token;
+		token = user.generateJwt();
+		res.status(200);
+		res.json({
+		  "token" : token
+		});
+	});
+
+};
+
+module.exports.login = function(req, res) {
+
+  // if(!req.body.email || !req.body.password) {
+  //   sendJSONresponse(res, 400, {
+  //     "message": "All fields required"
+  //   });
+  //   return;
+  // }
+
+  passport.authenticate('local', function(err, user, info){
+    var token;
+
+    // If Passport throws/catches an error
+    if (err) {
+      console.log("passport err")
+      res.status(404).json(err);
+      return;
+    }
+
+    // If a user is found
+    if(user){
+      token = user.generateJwt();
+      res.status(200);
+      res.json({
+        "token" : token
+      });
+    } else {
+      // If user is not found
+      console.log("passport user not found")
+      res.status(401).json(info);
+    }
+  }, {session: false})(req, res);
+
+};
