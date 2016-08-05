@@ -7,6 +7,10 @@
 			    $scope.isLoggedIn = authentication.isLoggedIn();
 
 			    $scope.currentUser = authentication.currentUser();
+
+			    $scope.isLoggedIn = authentication.isLoggedIn();
+
+			    console.log("logged in: " + $scope.isLoggedIn);
 			    
 			    $scope.logout = function(){
 			      authentication.logout();    
@@ -27,7 +31,9 @@
 					password : ""
 				};
 
-				$scope.signin = function () {
+				$scope.user = user;
+
+				$scope.login = function () {
 					authentication
 					.login(user)					
 					.success(function(){

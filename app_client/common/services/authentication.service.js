@@ -47,6 +47,8 @@ angular.module('MeanAppYu')
 			};
 
 			login = function(user) {
+
+				console.log("------------before sending http to login, user:" + JSON.stringify(user));
 				return $http.post('/api/login', user).success(function(data) {
 					saveToken(data.token);
 				});

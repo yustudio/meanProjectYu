@@ -4,11 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 //var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+require('./app_api/config/passport');
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/meanAppYu');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
+
 
 //var routes = require('./routes/index');
 //var users = require('./routes/users');
@@ -32,6 +35,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Set the app_client folder to serve static resources
 app.use(express.static(path.join(__dirname, 'app_client')));
+
+app.use(passport.initialize());
 
 //app.use('/', routes);
 //app.use('/users', users);

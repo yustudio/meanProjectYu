@@ -14,6 +14,11 @@ module.exports.profileRead = function(req, res) {
     User
       .findById(req.payload._id)
       .exec(function(err, user) {
+        if (err) {
+          console.log(err);
+          res.status(400).json(err);
+        }
+        console.log("express return user " + user);
         res.status(200).json(user);
       });
   }

@@ -12,6 +12,8 @@ passport.use(new LocalStrategy({
   // verify callback for local authentication accepts username and password arguments,
   // which  are submitted to the application via a login form
   function(username, password, done) {
+
+    console.log("-------------in passport LocalStrategy");
     User.findOne({ email: username }, function (err, user) {
       // Node server error
       if (err) { return done(err); }
@@ -22,7 +24,7 @@ passport.use(new LocalStrategy({
         });
       }
       // Return if password is wrong
-      if (!user.validPassword(password)) {
+      if (!user.validatePassword(password)) {
         return done(null, false, {
           message: 'Password is wrong'
         });

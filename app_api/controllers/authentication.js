@@ -2,7 +2,6 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 var User = require('../models/users');
 
-
 // var sendJSONresponse = function(res, status, content) {
 //   res.status(status);
 //   res.json(content);
@@ -31,6 +30,7 @@ console.log("--------------Registering in DB");
 	// MISSING ERROR TRAPS: catch throws from save
 	user.save(function(err) {
 		console.log("--------------Save user to DB");
+    console.log(JSON.stringify(user));
 		var token;
 		token = user.generateJwt();
 		res.status(200);
@@ -50,13 +50,17 @@ module.exports.login = function(req, res) {
   //   return;
   // }
 
+  console.log("--------------in log in ");
+
   passport.authenticate('local', function(err, user, info){
     var token;
+
+    console.log("passport authenticate --- user: " + user);
 
     // If Passport throws/catches an error
     if (err) {
       console.log("passport err")
-      res.status(404).json(err);
+      res.status(404).json(err.message);
       return;
     }
 
@@ -72,6 +76,6 @@ module.exports.login = function(req, res) {
       console.log("passport user not found")
       res.status(401).json(info);
     }
-  }, {session: false})(req, res);
+  })(req, res);
 
 };

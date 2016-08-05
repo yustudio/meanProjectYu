@@ -8,7 +8,7 @@
 		.state('app',{
 			url  : '/',
 			views:{
-				'header' : {
+				'header@' : {
 					templateUrl : 'common/header/header.view.html',
 					controller  : "HeaderController"
 				},
@@ -26,6 +26,10 @@
 		.state('app.aboutus',{
 			url  : 'aboutus',
 			views:{
+				'header@' : {
+					templateUrl : 'common/header/header.view.html',
+					controller  : "HeaderController"
+				},
 				'content@':{
 					templateUrl : "aboutus/aboutus.view.html",
 					controller  : "AboutUsController"
@@ -35,6 +39,10 @@
 		.state('app.login',{
 			url  : 'login',
 			views:{
+				'header@' : {
+					templateUrl : 'common/header/header.view.html',
+					controller  : "HeaderController"
+				},
 				'content@':{
 					templateUrl : "auth/login/login.view.html",
 					controller  : "LoginController"
@@ -45,6 +53,10 @@
 		.state('app.register',{
 			url  : 'register',
 			views:{
+				'header@' : {
+					templateUrl : 'common/header/header.view.html',
+					controller  : "HeaderController"
+				},
 				'content@':{
 					templateUrl : "auth/register/register.view.html",
 					controller  : "RegisterController"
@@ -54,6 +66,10 @@
 		.state('app.profile',{
 			url  : 'profile',
 			views:{
+				'header@' : {
+					templateUrl : 'common/header/header.view.html',
+					controller  : "HeaderController"
+				},
 				'content@':{
 					templateUrl : "profile/profile.view.html",
 					controller  : "ProfileController"
