@@ -1,8 +1,15 @@
 (function () {
 
 	angular.module('MeanAppYu')		
-			.controller('HeaderController', ['$scope', '$location', 'authentication', function($scope, $location, authentication){
+			.controller('HeaderController', ['$scope', '$location', '$state', 'authentication', function($scope, $location, $state, authentication){
 				console.log('Running HeaderController');
+
+				user = {
+					email : "",
+					password : ""
+				};
+
+				$scope.user = user;
 
 			    $scope.isLoggedIn = authentication.isLoggedIn();
 
@@ -13,8 +20,12 @@
 			    console.log("logged in: " + $scope.isLoggedIn);
 			    
 			    $scope.logout = function(){
-			      authentication.logout();    
-			      $location.path('/');
+			      authentication.logout();
+			      if ($state.is('app')) {
+			      	$state.reload();
+			      } else {
+			      	$location.path('/');	
+			      }			      
 			    };
 
 			    // $scope.signIn = function(){
@@ -25,13 +36,6 @@
 			    $scope.profile = function(){
 			      $location.path('/profile');
 			    };
-
-				user = {
-					email : "",
-					password : ""
-				};
-
-				$scope.user = user;
 
 				$scope.login = function () {
 					authentication

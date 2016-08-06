@@ -14,16 +14,16 @@
       <ul class="nav navbar-nav">
         <li><a ui-sref="app">Home</a></li>
         <li><a ui-sref="app.aboutus">About</a></li>
-        <li><a ui-sref="app.register">Register</a></li>
-        <li><a ui-sref="app.profile">Profile</a></li>
+        <li ng-hide="isLoggedIn"><a ui-sref="app.register">Register</a></li>
+        <li ng-show="isLoggedIn"><a ui-sref="app.profile">Profile</a></li>
       </ul>
      
       <form ng-hide="isLoggedIn" ng-submit="login()" class="navbar-form navbar-right">
         <div class="form-group">
-          <input type="email" placeholder="Email" class="form-control" id="emailToo" ng-model="user.email">
+          <input type="email" placeholder="Email" class="form-control" id="emailLogin" ng-model="user.email">
         </div>
         <div class="form-group">
-          <input type="password" placeholder="Password" class="form-control" id="passwordTop" ng-model="user.password">
+          <input type="password" placeholder="Password" class="form-control" id="passwordLogin" ng-model="user.password">
         </div>
         <button type="submit" class="btn btn-default">Sign in</button>      
       </form>

@@ -29,6 +29,13 @@ console.log("--------------Registering in DB");
 
 	// MISSING ERROR TRAPS: catch throws from save
 	user.save(function(err) {
+
+    if (err) {
+      console.log(err);
+      res.status(404).json(err);
+      return;
+    };
+
 		console.log("--------------Save user to DB");
     console.log(JSON.stringify(user));
 		var token;

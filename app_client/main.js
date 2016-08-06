@@ -12,7 +12,7 @@
 					templateUrl : 'common/header/header.view.html',
 					controller  : "HeaderController"
 				},
-				'content':{
+				'content@':{
 					templateUrl : "home/home.view.html",
 					controller  : "HomeController"
 				},
