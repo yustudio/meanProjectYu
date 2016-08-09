@@ -18,9 +18,11 @@ var userSchema = new mongoose.Schema({
   lastName: {
     type: String,
     required: true
-  },
+  },  
   hash: String,
-  salt: String   // randomly generated
+  salt: String,   // randomly generated
+  OauthId: String,
+  OauthToken: String
 });
 
 userSchema.plugin(uniqueValidator);

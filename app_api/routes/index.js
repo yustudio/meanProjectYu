@@ -9,7 +9,8 @@ var auth = jwt({
 
 var ctrlProfile = require('../controllers/profile');
 var ctrlAuth = require('../controllers/authentication');
-
+var FacebookStrategy = require('passport-facebook').Strategy;
+var passport = require('passport');
 
 // checks JWT and throw if not valid JWT, which is caught in app.js as "UnauthorizedError"
 router.get('/profile', auth, ctrlProfile.profileRead); 
@@ -19,5 +20,37 @@ router.post('/register', ctrlAuth.register);
 
 // protect the /login endpoint since login method uses passport to authenticate first
 router.post('/login', ctrlAuth.login);    
+
+
+router.get('/facebook', passport.authenticate('facebook'),
+  function(req, res){});
+
+router.get('/facebook/callback', function(req,res,next){
+  passport.authenticate('facebook', function(err, user, info) {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return res.status(401).json({
+        err: info
+      });
+    }
+    req.logIn(user, function(err) {
+      if (err) {
+        return res.status(500).json({
+          err: 'Could not log in user'
+        });
+      }
+              var token = Verify.getToken(user);
+              res.status(200).json({
+        status: 'Login successful!',
+        success: true,
+        token: token
+      });
+    });
+  })(req,res,next);
+});
+
+
 
 module.exports = router;
