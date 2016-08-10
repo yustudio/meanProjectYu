@@ -1,7 +1,8 @@
 var mongoose = require( 'mongoose' );
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
-var uniqueValidator = require('mongoose-unique-validator')
+var uniqueValidator = require('mongoose-unique-validator');
+var config = require('../config/serverconfig.js');
 
 var userSchema = new mongoose.Schema({
   email: {
@@ -47,7 +48,7 @@ userSchema.methods.generateJwt = function() {
     email: this.email,
     firstName: this.firstName,
     exp: parseInt(expiry.getTime() / 1000),
-  }, "MY_SECRET"); // DO NOT KEEP SECRET IN THE CODE!
+  }, config.jwtSecret);
 };
 
 module.exports = mongoose.model('User', userSchema);

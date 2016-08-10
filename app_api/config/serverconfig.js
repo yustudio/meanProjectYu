@@ -1,6 +1,6 @@
 module.exports = {
-    'secretKey': '12345-67890-09876-54321',
-    'mongoUrl' : 'mongodb://localhost:27017/conFusion',
+    'jwtSecret': process.env.JWT_SECRET || 'MY_SECRET',
+    'mongoUrl' : 'mongodb://localhost:27017/meanAppYu',
     'facebook': {
         clientID: '513788212145350',
         clientSecret: 'c80310e4abe5adee49900b9d37a612a5',

@@ -8,7 +8,8 @@ var passport = require('passport');
 require('./app_api/config/passport');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/meanAppYu');
+var config = require('./app_api/config/serverconfig');
+mongoose.connect(config.mongoUrl);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
