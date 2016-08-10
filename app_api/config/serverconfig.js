@@ -6,6 +6,6 @@ module.exports = {
         clientSecret: 'c80310e4abe5adee49900b9d37a612a5',
         // URL for client application to receive the authorization code and 
         // access token after authorized by OAuth service provider
-        callbackURL: 'http://localhost:3000/#/api/facebook/callback'
+        callbackURL: 'https://localhost:3443/api/facebook/callback'
     }
 }

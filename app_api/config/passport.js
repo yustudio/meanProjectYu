@@ -5,7 +5,7 @@ var User = require('../models/users');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var config = require('./serverconfig');
 
-passport.use(new LocalStrategy({
+module.exports = passport.use(new LocalStrategy({
     //local strategy for passport expects username/pw but we 
     //use email as unique ID, so need to set the username field to return email instead 
     usernameField: 'email'
@@ -40,12 +40,17 @@ passport.use(new LocalStrategy({
 
 //exports.facebook = 
 //passport.use(new FacebookStrategy({
-passport.use(new FacebookStrategy({
+module.exports = passport.use(new FacebookStrategy({
   clientID: config.facebook.clientID,
   clientSecret: config.facebook.clientSecret,
-  callbackURL: config.facebook.callbackURL
+  callbackURL: config.facebook.callbackURL,
+  profileFields: ["id", 'first_name', 'last_name', 'email']
   },
   function(accessToken, refreshToken, profile, done) {
+
+    console.log("in facebook strategy profile:" + JSON.stringify(profile));
+    console.log("in facebook strategy token:" + JSON.stringify(accessToken));
+
     User.findOne({ OauthId: profile.id }, function(err, user) {
       if(err) {
         console.log(err); // handle errors!
@@ -53,11 +58,12 @@ passport.use(new FacebookStrategy({
       if (!err && user !== null) {
         done(null, user);
       } else {
-        user = new User({
-          username: profile.displayName
-        });
+        user = new User();
         user.OauthId = profile.id;
         user.OauthToken = accessToken;
+        user.email = profile._json.email;
+        user.firstName = profile._json.first_name;
+        user.lastName = profile._json.last_name;
         user.save(function(err) {
           if(err) {
             console.log(err); // handle errors!

@@ -18,7 +18,16 @@
 			    //$scope.isLoggedIn = authentication.isLoggedIn();
 
 			    $scope.facebookSignin = function() {
-			    	authentication.facebookLogin();	
+			    	authentication.facebookLogin()
+			    	.success(function(data){
+			    		console.log("Header controller, Login Successful");
+			    		$location.path('/profile');
+			    	})
+			    	.error(function(err){
+			    		console.log("Header controller, Login failed: " + err);
+			    		alert("Header controller, Login failed: " + err);
+			    		$location.path("/login");
+			    	});	
 			    } 
 
 			    console.log("logged in: " + $scope.isLoggedIn);

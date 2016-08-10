@@ -58,10 +58,10 @@ angular.module('MeanAppYu')
 				$window.localStorage.removeItem('mean-token');			
 			};
 
-			facebookLogin = function() {
+			var facebookLogin = function() {
 				console.log("------------sending request to server to go to facebook");
 				return $http.get('/api/facebook').success(function(data) {
-					console.log(JSON.stringify(data));
+					saveToken(data.token);
 				});
 			}; 
 
