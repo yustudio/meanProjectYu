@@ -31,9 +31,44 @@ app.all('*', function(req, res, next){
  res.redirect('https://'+req.hostname+':'+app.get('secPort')+req.url);
 });
 
+
+/*
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+};
+
+app.use(allowCrossDomain);
+
+
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+*/
+
+/*
+var allowCrossDomain = function(req, res, next) {
+  // Added other domains you want the server to give access to
+  // WARNING - Be careful with what origins you give access to
+  var allowedHost = [
+    'http://backbonetutorials.com',
+    'http://localhost',
+    'https://localhost'
+  ];
+
+  if(allowedHost.indexOf(req.headers.origin) !== -1) {
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Origin', req.headers.origin)
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
+    next();
+  } else {
+    res.send({auth: false});
+  }
+}
+app.use(allowCrossDomain);
+*/
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

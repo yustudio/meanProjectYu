@@ -56,6 +56,13 @@ angular.module('MeanAppYu')
 
 			logout = function() {
 				$window.localStorage.removeItem('mean-token');			
+			};
+
+			facebookLogin = function() {
+				console.log("------------sending request to server to go to facebook");
+				return $http.get('/api/facebook').success(function(data) {
+					console.log(JSON.stringify(data));
+				});
 			}; 
 
 			return {
@@ -65,7 +72,8 @@ angular.module('MeanAppYu')
 				isLoggedIn : isLoggedIn,
 				register : register,
 				login : login,
-				logout : logout
+				logout : logout,
+				facebookLogin: facebookLogin
 			};
 
 	

@@ -15,7 +15,11 @@
 
 			    $scope.currentUser = authentication.currentUser();
 
-			    $scope.isLoggedIn = authentication.isLoggedIn();
+			    //$scope.isLoggedIn = authentication.isLoggedIn();
+
+			    $scope.facebookSignin = function() {
+			    	authentication.facebookLogin();	
+			    } 
 
 			    console.log("logged in: " + $scope.isLoggedIn);
 			    

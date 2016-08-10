@@ -22,10 +22,16 @@ router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);    
 
 
+// send user to facebook for login
 router.get('/facebook', passport.authenticate('facebook'),
-  function(req, res){});
+  function(req, res){
+   // res.header('Access-Control-Allow-Origin', "*");
+console.log("------------------------"+JSON.stringify(res));
+  });
 
+// called after facebook is logged in successfully
 router.get('/facebook/callback', function(req,res,next){
+  consolelog("-------------facebook/callback being called")
   passport.authenticate('facebook', function(err, user, info) {
     if (err) {
       return next(err);
@@ -48,6 +54,8 @@ router.get('/facebook/callback', function(req,res,next){
         token: token
       });
     });
+
+   // res.header('Access-Control-Allow-Origin', "*");
   })(req,res,next);
 });
 
