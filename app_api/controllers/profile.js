@@ -8,6 +8,8 @@ module.exports.profileRead = function(req, res) {
       "message" : "UnauthorizedError: private profile"
     });
   } else {
+
+    console.log("Server, profile, token data: " + JSON.stringify(req.payload));
     // ERROR CASE OF WHEN USER ISN'T FOUND
     //http://stackoverflow.com/questions/31549857/mongoose-what-does-the-exec-function-do
     // findById(id, callback) is the same as findById(id).exec(callback)

@@ -22,6 +22,35 @@
 				}
 			}
 		})
+
+		.state('app.product1',{
+			url  : 'product1',
+			views:{
+				'header@' : {
+					templateUrl : 'common/header/header.view.html',
+					controller  : "HeaderController"
+				},
+				'content@':{
+					templateUrl : "products/product1.html",
+					controller  : "HomeController"
+				}				
+			}
+		})
+
+		.state('app.product1.model1',{
+			url  : 'model1',
+			views:{
+				'header@' : {
+					templateUrl : 'common/header/header.view.html',
+					controller  : "HeaderController"
+				},
+				'content@':{
+					templateUrl : "products/product1model1.html",
+					controller  : "HomeController"
+				}				
+			}
+		})
+
 		
 		.state('app.aboutus',{
 			url  : 'aboutus',

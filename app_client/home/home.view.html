@@ -9,6 +9,26 @@
   </p>
     </blockquote>
 
+
+   <table>
+    	<tr>
+    		<th> Name </th>
+    		<th> spec1 </th>
+    		<th> spec2 </th>
+    	</tr>
+    	<tr ng-repeat="model in models">
+    		<td>{{model.name}}</td>
+    		<td>{{model.spec1}}</td>
+    		<td>{{model.spec2}}</td>
+    	</tr>
+    </table>
+
+    <div>
+    	<a ui-sref="app.product1">Product1</a>
+    	<a ui-sref="app.product2">Product2</a>
+    	<div id="product" ui-view></div>
+    </div>
+
    
   </div>
 </div>
