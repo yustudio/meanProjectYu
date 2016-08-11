@@ -1,3 +1,9 @@
+// UI view ref:
+// https://github.com/angular-ui/ui-router/wiki/Nested-States-%26-Nested-Views
+// http://plnkr.co/edit/gmtcE2?p=preview
+
+// http://stackoverflow.com/questions/19776345/multiple-nested-ui-views-with-ui-router-and-angularjs
+
 (function() {
 
 	angular.module('MeanAppYu', ['ui.router']);
@@ -30,7 +36,7 @@
 					templateUrl : 'common/header/header.view.html',
 					controller  : "HeaderController"
 				},
-				'content@':{
+				'content@app':{
 					templateUrl : "products/product1.html",
 					controller  : "HomeController"
 				}				
@@ -44,8 +50,36 @@
 					templateUrl : 'common/header/header.view.html',
 					controller  : "HeaderController"
 				},
-				'content@':{
+				'content@app.product1':{
 					templateUrl : "products/product1model1.html",
+					controller  : "HomeController"
+				}				
+			}
+		})
+
+		.state('app.product2',{
+			url  : 'product2',
+			views:{
+				'header@' : {
+					templateUrl : 'common/header/header.view.html',
+					controller  : "HeaderController"
+				},
+				'content@app':{
+					templateUrl : "products/product2.html",
+					controller  : "HomeController"
+				}				
+			}
+		})
+
+		.state('app.product2.model1',{
+			url  : 'model1',
+			views:{
+				'header@' : {
+					templateUrl : 'common/header/header.view.html',
+					controller  : "HeaderController"
+				},
+				'content@app.product2':{
+					templateUrl : "products/product2model1.html",
 					controller  : "HomeController"
 				}				
 			}
