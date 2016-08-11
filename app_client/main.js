@@ -31,11 +31,7 @@
 
 		.state('app.product1',{
 			url  : 'product1',
-			views:{
-				'header@' : {
-					templateUrl : 'common/header/header.view.html',
-					controller  : "HeaderController"
-				},
+			views:{				
 				'content@app':{
 					templateUrl : "products/product1.html",
 					controller  : "HomeController"
