@@ -1,35 +1,66 @@
 
+<div>
+  <div class="jumbotron">
+    <div class="container">
 
-<div class="jumbotron">
-  <div class="container">
-    <h1>Welcome</h1>
-    <blockquote>
-       
-  <p>Won't you please <a href="login">sign in</a> or <a href="register">register</a>?
-  </p>
-    </blockquote>
+  <div id="theCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+    <li data-target="#theCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#theCarousel" data-slide-to="1"></li>    
+    </ol>
 
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+      <img src="pic1.JPG" width='100%'>
+      <!-- <div class="fill" style="background-image:url('pic1.JPG');"></div> -->
+      <!-- <img src="http://images.raleighskyline.com/images/2012/durhams-suntrust-tower-moved-to-raleigh/hill_building_move_april_1_2012_raleighskyline.com_01.jpg">
+      </div>  --> 
+      </div>
 
-   <table>
-    	<tr>
-    		<th> Name </th>
-    		<th> spec1 </th>
-    		<th> spec2 </th>
-    	</tr>
-    	<tr ng-repeat="model in models">
-    		<td>{{model.name}}</td>
-    		<td>{{model.spec1}}</td>
-    		<td>{{model.spec2}}</td>
-    	</tr>
-    </table>
-
-    <div>
-    	<a ui-sref="app.product1">Product1</a>
-    	<a ui-sref="app.product2">Product2</a>
-    	<div ui-view="content"></div>
+      <div class="item">
+       <img src="pic2.JPG" width='100%'>
+       </div>   
     </div>
 
-   
+    <a class="left carousel-control" href="#theCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#theCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+
+  </div>
+  
+
+      <h1>Welcome</h1>
+      <blockquote>
+         
+    <p>Won't you please <a href="login">sign in</a> or <a href="register">register</a>?
+    </p>
+      </blockquote>
+
+
+     <table>
+      	<tr>
+      		<th> Name </th>
+      		<th> spec1 </th>
+      		<th> spec2 </th>
+      	</tr>
+      	<tr ng-repeat="model in models">
+      		<td>{{model.name}}</td>
+      		<td>{{model.spec1}}</td>
+      		<td>{{model.spec2}}</td>
+      	</tr>
+      </table>
+
+      <div>
+      	<a ui-sref="app.product1">Product1</a>
+      	<a ui-sref="app.product2">Product2</a>
+      	<div ui-view="content"></div>
+      </div>
+
+     
+    </div>
   </div>
 </div>
   
