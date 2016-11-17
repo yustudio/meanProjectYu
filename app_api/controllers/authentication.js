@@ -31,8 +31,8 @@ console.log("--------------Registering in DB");
 	user.save(function(err) {
 
     if (err) {
-      console.log(err);
-      res.status(404).json(err);
+      console.log(err);      
+      res.status(400).json(err);
       return;
     };
 

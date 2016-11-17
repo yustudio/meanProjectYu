@@ -58,6 +58,9 @@
 					})
 					.error(function(err){
 						alert(err.message);
+						if (err.message === 'User not found. Please register.') {
+							$location.path('/register');
+						}
 					});
 				};
 
