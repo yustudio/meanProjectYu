@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var jwt = require('express-jwt');
-var auth = jwt({
+var auth = jwt({   // used during get profile
   secret: 'MY_SECRET',
   //property to create on the req object to hold the token info after auth passes
   userProperty: 'payload' 
