@@ -5,8 +5,8 @@
 				console.log('Running HeaderController');
 
 				user = {
-					email : "",
-					password : ""
+					email : "abc@email.com",
+					password : "password"
 				};
 
 				$scope.user = user;
