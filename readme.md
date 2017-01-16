@@ -1,13 +1,14 @@
 #MEAN Project: The Triangle Realty
 ## Steps to run
-* `Install MongoDB, NodeJS` 
-* `Start mongodb: mongod --dbpath=db`
-* `Start nodemon server: npm start`
+* Install MongoDB and NodeJS
+* Open a new terminal for database, start mongodb: `mongod --dbpath=db`
+* Open a new terminal for building client, 'gulp watch'
+* Open a new terminal for starting server, Start nodemon server: `npm start`
 * `Go to https://localhost:3443`
 
 ## Work in progress
 * Use of React & Redux
-* Add SASS & SCSS
+* Add SCSS
 
 ## About myself
 I have started working on MEAN stack web development since early 2016. 
